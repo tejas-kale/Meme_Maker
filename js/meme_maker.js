@@ -10,10 +10,23 @@ function text_change_listener (evt) {
 		window.lower_line = text;
 	}
 
-	redraw_meme(window.image_src, window.upper_line, window.lower_line);
+	var text_obj = {
+		"upper_line": window.upper_line,
+		"lower_line": window.lower_line
+	};
+
+	redraw_meme(window.image_src, text_obj);
 }
 
-function redraw_meme (image, upper_line, lower_line) {
+function redraw_meme (image, text) {
+	// Create an empty text object if undefined
+	if (typeof text == undefined) {
+		text = {
+			"upper_line": "",
+			"lower_line": ""
+		};
+	}
+
 	// Get canvas 2d context
 	var canvas = document.querySelector('canvas');
 	var ctx = canvas.getContext("2d");
@@ -27,16 +40,16 @@ function redraw_meme (image, upper_line, lower_line) {
 	ctx.fillStyle = "#FFFFFF";
 
 	// Add upper and lower text to 'fill'
-	ctx.fillText(upper_line.toUpperCase(), canvas.width / 2, 40);
-	ctx.fillText(lower_line.toUpperCase(), canvas.width / 2, 380);
+	ctx.fillText(text.upper_line.toUpperCase(), canvas.width / 2, 40);
+	ctx.fillText(text.lower_line.toUpperCase(), canvas.width / 2, 380);
 
 	// Set stroke properties
 	ctx.strokeStyle = "#000000";
 	ctx.lineWidth = 3;
 
 	// Add upper and lower text to 'stroke'
-	ctx.strokeText(upper_line.toUpperCase(), canvas.width / 2, 40);
-	ctx.strokeText(lower_line.toUpperCase(), canvas.width / 2, 380);
+	ctx.strokeText(text.upper_line.toUpperCase(), canvas.width / 2, 40);
+	ctx.strokeText(text.lower_line.toUpperCase(), canvas.width / 2, 380);
 }
 
 function save_file () {
@@ -54,7 +67,7 @@ function handle_file_select (evt) {
 		var image = new Image();
 		image.onload = function () {
 			window.image_src = this;
-			redraw_meme(window.image_src, "", "");
+			redraw_meme(window.image_src);
 		}
 
 		// Set image data to background image
@@ -75,4 +88,3 @@ input_lower.oninput = text_change_listener;
 document.getElementById('image').addEventListener('change', handle_file_select, false);
 
 document.querySelector('button').addEventListener('click', save_file, false);
-
