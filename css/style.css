@@ -1,0 +1,82 @@
+/* Universal styles */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: 'EB Garamond', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	width: 800px;
+}
+
+canvas {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+input[type=file] {
+	background-color: white;
+	border: 0 none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 15px;
+	-webkit-border-radius: 5px;
+}
+
+td {
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	text-align: left;
+	vertical-align: top;
+}
+
+img, embed,
+object, video {
+	max-width: 100%;
+}
+
+
+/* Custom classes */
+.input {
+	border-right: 1px solid #000000;
+	float: left;
+	width: 50%;
+}
+
+.output {
+	float: right;
+	width: 50%
+}
+
+.section_break {
+	background-color: #696969;
+	color: #696969;
+	height: 1px;
+}
+
+.title_name {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.title_break {
+	background-color: #000000;
+	color: #000000;
+	height: 2px;
+}
+
+/* IDs */
+#save {
+	font-size: 18px;
+}
