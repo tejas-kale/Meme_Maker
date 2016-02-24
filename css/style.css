@@ -22,6 +22,14 @@ canvas {
 	display: block;
 }
 
+h3 {
+	text-decoration: underline;
+}
+
+input {
+	margin-left: 5px;
+}
+
 input[type=file] {
 	background-color: white;
 	border: 0 none;
@@ -63,6 +71,7 @@ object, video {
 	background-color: #696969;
 	color: #696969;
 	height: 1px;
+	margin-right: 5px;
 }
 
 .title_name {

@@ -40,16 +40,16 @@ function redraw_meme (image, text) {
 	ctx.fillStyle = "#FFFFFF";
 
 	// Add upper and lower text to 'fill'
-	ctx.fillText(text.upper_line.toUpperCase(), canvas.width / 2, 40);
-	ctx.fillText(text.lower_line.toUpperCase(), canvas.width / 2, 380);
+	ctx.fillText(text.upper_line, canvas.width / 2, 40);
+	ctx.fillText(text.lower_line, canvas.width / 2, 380);
 
 	// Set stroke properties
 	ctx.strokeStyle = "#000000";
 	ctx.lineWidth = 3;
 
 	// Add upper and lower text to 'stroke'
-	ctx.strokeText(text.upper_line.toUpperCase(), canvas.width / 2, 40);
-	ctx.strokeText(text.lower_line.toUpperCase(), canvas.width / 2, 380);
+	ctx.strokeText(text.upper_line, canvas.width / 2, 40);
+	ctx.strokeText(text.lower_line, canvas.width / 2, 380);
 }
 
 function save_file () {
